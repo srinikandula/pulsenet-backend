@@ -1,0 +1,34 @@
+{"level":"error","message":false,"timestamp":"2024-01-19T11:24:07.658Z"}
+{"level":"error","message":false,"timestamp":"2024-01-19T11:24:07.671Z"}
+{"level":"error","message":false,"timestamp":"2024-01-19T11:25:47.593Z"}
+{"level":"error","message":false,"timestamp":"2024-01-19T11:25:47.609Z"}
+{"level":"error","message":false,"timestamp":"2024-01-19T11:26:56.251Z"}
+{"level":"error","message":false,"timestamp":"2024-01-19T11:26:56.257Z"}
+{"level":"error","message":false,"timestamp":"2024-01-19T11:31:36.032Z"}
+{"level":"error","message":false,"timestamp":"2024-01-19T11:31:36.034Z"}
+{"level":"error","message":false,"timestamp":"2024-01-19T11:53:32.080Z"}
+{"level":"error","message":false,"timestamp":"2024-01-19T11:53:32.086Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T05:15:22.034Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T05:15:22.038Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T05:16:23.358Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T05:16:23.361Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T05:21:13.432Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T05:21:13.435Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T07:11:17.656Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T07:11:17.663Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T07:12:20.333Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T07:12:20.337Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T07:15:16.501Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T07:15:16.504Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T07:23:08.527Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T07:23:08.528Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T07:28:54.149Z"}
+{"level":"error","message":false,"timestamp":"2024-01-23T07:28:54.151Z"}
+{"level":"error","message":false,"timestamp":"2024-01-29T06:40:33.112Z"}
+{"level":"error","message":false,"timestamp":"2024-01-29T06:40:33.115Z"}
+{"level":"error","message":true,"timestamp":"2024-01-29T06:54:12.292Z"}
+{"level":"error","message":true,"timestamp":"2024-01-29T06:54:12.319Z"}
+{"level":"error","message":true,"timestamp":"2024-01-29T06:55:37.813Z"}
+{"level":"error","message":true,"timestamp":"2024-01-29T06:55:37.821Z"}
+{"level":"error","message":"EBUSY: resource busy or locked, open 'MyCsv.csv'","timestamp":"2024-01-29T06:56:58.445Z"}
+{"level":"error","message":"EBUSY: resource busy or locked, open 'MyCsv.csv'","timestamp":"2024-01-29T06:56:58.450Z"}
