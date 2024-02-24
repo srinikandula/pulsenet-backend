@@ -1,0 +1,729 @@
+{
+	"info": {
+		"_postman_id": "07b94c34-955c-4787-8bad-3d14a6302f2a",
+		"name": "Logipulse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30138105"
+	},
+	"item": [
+		{
+			"name": "authenticateUsers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email_ID\": \"25007543@mahindralogistics.com\",\r\n    \"Password\" :\"7f010\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/login/authenticateUsers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login",
+						"authenticateUsers"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Menu",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNjU4OTkxMX0.gbx0DkX2g2OVb63t_1IME9bU4afS7xJKaJ2AYLb0WIxyv7kzGU3eiHwYOFfo2vG9-kkp0Pd7kuWI1dqhqRJ2SVJzj3HgZLGmSi8nto2dh3rnpuMXmc1t8x_TYLWJaS67Hx0dHwQ6ek2dCc3p8qG8VGziH3-cN4afOBimO6nyGIM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"RoleID\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/Menu/GetMenu",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Menu",
+						"GetMenu"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EportToCSV",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNjU4OTkxMX0.gbx0DkX2g2OVb63t_1IME9bU4afS7xJKaJ2AYLb0WIxyv7kzGU3eiHwYOFfo2vG9-kkp0Pd7kuWI1dqhqRJ2SVJzj3HgZLGmSi8nto2dh3rnpuMXmc1t8x_TYLWJaS67Hx0dHwQ6ek2dCc3p8qG8VGziH3-cN4afOBimO6nyGIM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/Reports/exportToCSV",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Reports",
+						"exportToCSV"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAccount",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNjU4OTkxMX0.gbx0DkX2g2OVb63t_1IME9bU4afS7xJKaJ2AYLb0WIxyv7kzGU3eiHwYOFfo2vG9-kkp0Pd7kuWI1dqhqRJ2SVJzj3HgZLGmSi8nto2dh3rnpuMXmc1t8x_TYLWJaS67Hx0dHwQ6ek2dCc3p8qG8VGziH3-cN4afOBimO6nyGIM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User_ID\": \"1245\",\r\n    \"Mode\" :\"GET_BY_USER_ID_FILTERS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/Masters/GetAccount",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Masters",
+						"GetAccount"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UsageReportWithData",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"From_Date\": \"2024-01-01\",\r\n    \"To_Date\" :\"2024-01-01\",\r\n    \"Vertical_Id\":0,\r\n    \"Service_Id\":0,\r\n    \"Cluster_Id\":0,\r\n    \"Account_Id\":0,\r\n    \"Location_Id\":0,\r\n    \"Block_Id\":0,\r\n    \"Category_Id\":0,\r\n    \"User_Id\":1245,\r\n    \"Dwms_Parameter_Id\":0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/Reports/UsageReportWithData",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Reports",
+						"UsageReportWithData"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UsageReportForExport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"From_Date\": \"2024-01-01\",\r\n    \"To_Date\" :\"2024-01-01\",    \r\n    \"User_Id\":1245\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/Reports/UsageReportForExport",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Reports",
+						"UsageReportForExport"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAccountByVertical",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNjU4OTkxMX0.gbx0DkX2g2OVb63t_1IME9bU4afS7xJKaJ2AYLb0WIxyv7kzGU3eiHwYOFfo2vG9-kkp0Pd7kuWI1dqhqRJ2SVJzj3HgZLGmSi8nto2dh3rnpuMXmc1t8x_TYLWJaS67Hx0dHwQ6ek2dCc3p8qG8VGziH3-cN4afOBimO6nyGIM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User_ID\": \"1245\",\r\n    \"Vertical_ID\":11,\r\n    \"Mode\" :\"GET_BY_USER_ID_VERTICAL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/CommonAPIs/GetAccountByVertical",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"CommonAPIs",
+						"GetAccountByVertical"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetServiceLine",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNjU4OTkxMX0.gbx0DkX2g2OVb63t_1IME9bU4afS7xJKaJ2AYLb0WIxyv7kzGU3eiHwYOFfo2vG9-kkp0Pd7kuWI1dqhqRJ2SVJzj3HgZLGmSi8nto2dh3rnpuMXmc1t8x_TYLWJaS67Hx0dHwQ6ek2dCc3p8qG8VGziH3-cN4afOBimO6nyGIM",
+						"type": "text"
+					},
+					{
+						"key": "content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User_ID\": \"1245\",\r\n    \"Mode\" :\"GET_BY_ACCOUNT_SL_ID_FILTERS\",\r\n    \"Account_ID\":309\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/Masters/GetServiceLine",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Masters",
+						"GetServiceLine"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCategory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNjU4OTkxMX0.gbx0DkX2g2OVb63t_1IME9bU4afS7xJKaJ2AYLb0WIxyv7kzGU3eiHwYOFfo2vG9-kkp0Pd7kuWI1dqhqRJ2SVJzj3HgZLGmSi8nto2dh3rnpuMXmc1t8x_TYLWJaS67Hx0dHwQ6ek2dCc3p8qG8VGziH3-cN4afOBimO6nyGIM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User_ID\": \"1245\",\r\n    \"Mode\" :\"GET_BY_USER_ID_FILTERS\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/Masters/GetCategory",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Masters",
+						"GetCategory"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetKPIDetails",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNjU4OTkxMX0.gbx0DkX2g2OVb63t_1IME9bU4afS7xJKaJ2AYLb0WIxyv7kzGU3eiHwYOFfo2vG9-kkp0Pd7kuWI1dqhqRJ2SVJzj3HgZLGmSi8nto2dh3rnpuMXmc1t8x_TYLWJaS67Hx0dHwQ6ek2dCc3p8qG8VGziH3-cN4afOBimO6nyGIM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User_ID\": \"1245\",\r\n    \"Account_ID\" :\"309\",\r\n    \"Frequency\":\"Daily\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/DataInput/GetKPIDetails",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"DataInput",
+						"GetKPIDetails"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetNPDKPIList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNjU4OTkxMX0.gbx0DkX2g2OVb63t_1IME9bU4afS7xJKaJ2AYLb0WIxyv7kzGU3eiHwYOFfo2vG9-kkp0Pd7kuWI1dqhqRJ2SVJzj3HgZLGmSi8nto2dh3rnpuMXmc1t8x_TYLWJaS67Hx0dHwQ6ek2dCc3p8qG8VGziH3-cN4afOBimO6nyGIM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User_ID\": \"1245\",\r\n    \"Account_ID\" :\"626\",\r\n    \"Frequency\":\"Daily\",\r\n    \"Category_ID\":0,\r\n    \"Service_ID\":0\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/DataInput/GetNPDKPIList",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"DataInput",
+						"GetNPDKPIList"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveDataInputDetails",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNjU4OTkxMX0.gbx0DkX2g2OVb63t_1IME9bU4afS7xJKaJ2AYLb0WIxyv7kzGU3eiHwYOFfo2vG9-kkp0Pd7kuWI1dqhqRJ2SVJzj3HgZLGmSi8nto2dh3rnpuMXmc1t8x_TYLWJaS67Hx0dHwQ6ek2dCc3p8qG8VGziH3-cN4afOBimO6nyGIM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"User_ID\":1245,\r\n\"Is_Admin\":0,\r\n\"Mode\":\"UPDATE\",\r\n\"DwmsparameterInput_ID\":7883998,\r\n\"Dwmsparameter_ID\":0,\r\n\"Expected_Entry_Date\":null,\r\n\"Actual_Entry_Date\":\"2024-01-23\",\r\n\"Numerator\":980,\r\n\"Denominator\":90,\r\n\"Actual_value\":0,\r\n\"Remark\":\"\",\r\n\"Vertical_ID\":0,\r\n\"Cluster_ID\":0,\r\n\"Account_ID\":0,\r\n\"Location_ID\":0,\r\n\"Block_ID\":0,\r\n\"Category_ID\":0,\r\n\"Status\":\"COMPLETED\",\r\n\"Frm_Dt\":null,\r\n\"To_Dt\":null,\r\n\"Target\":0,\r\n\"NumeratorDenominatorFormula\":\"{\\\"Numerator\\\":[{\\\"Operator\\\":\\\"\\\",\\\"Param\\\":\\\"700\\\"}],\\\"Denominator\\\":[{\\\"Operator\\\":\\\"\\\",\\\"Param\\\":\\\"80\\\"}]}\",\r\n\"Is_Applicable\":\"0\",\r\n\"Is_All_Applicable\":1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/DataInput/SaveDataInputDetails",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"DataInput",
+						"SaveDataInputDetails"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateApproveTargets",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNjU4OTkxMX0.gbx0DkX2g2OVb63t_1IME9bU4afS7xJKaJ2AYLb0WIxyv7kzGU3eiHwYOFfo2vG9-kkp0Pd7kuWI1dqhqRJ2SVJzj3HgZLGmSi8nto2dh3rnpuMXmc1t8x_TYLWJaS67Hx0dHwQ6ek2dCc3p8qG8VGziH3-cN4afOBimO6nyGIM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"User_ID\":1229,\r\n\"Mode\":\"UPDATEAPPROVE\",\r\n\"Dwmsparameter_ID\":6628,\r\n\"Map_Dwmsparameter_Id\":939630,\r\n\"CurrentTarget\":60,\r\n\"PrevTarget\":\"0.000\",\r\n\"Base\":0,\r\n\"Vertical_ID\":15,\r\n\"Account_ID\":113,\r\n\"Service_ID\":\"0\",\r\n\"Category_ID\":0,\r\n\"Remark\":\"\",\r\n\"IsRejStatus\":\"\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/DataInput/UpdateApproveTargets",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"DataInput",
+						"UpdateApproveTargets"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddUpdateVertical",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNzcyODQ4MH0.EGbGe3mRfqHrmoPlAjQ4clD4wcFcboHVXR40ubfTK7QVcEgbTqcxG3Tnt5YLH_N1--_K2ddDMpDaVL-wsLkuXdENIIoHFsgt46Qqd3Md3FFniaIJngg1KuuPLhjjx2mQIKIu170B8Pf7BNaWYPKtZ2AcxDccQZ52D73CDKhBISY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User_ID\": \"1245\",\r\n    \"Vertical_Id\":2,\r\n    \"Mode\" :\"INSERTUPDATE\",\r\n    \"Vertical_Name\":\"AOB\",\r\n    \"Vertical_Status\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/Masters/AddUpdateVertical",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Masters",
+						"AddUpdateVertical"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAddUpdateCluster",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNzcyODQ4MH0.EGbGe3mRfqHrmoPlAjQ4clD4wcFcboHVXR40ubfTK7QVcEgbTqcxG3Tnt5YLH_N1--_K2ddDMpDaVL-wsLkuXdENIIoHFsgt46Qqd3Md3FFniaIJngg1KuuPLhjjx2mQIKIu170B8Pf7BNaWYPKtZ2AcxDccQZ52D73CDKhBISY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User_ID\": \"1245\",\r\n    \"Cluster_Id\":2,\r\n    \"Mode\" :\"INSERTUPDATE\",\r\n    \"Cluster_Name\":\"AOB\",\r\n    \"Cluster_Status\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/Masters/GetAddUpdateClusters",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Masters",
+						"GetAddUpdateClusters"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAddUpdateService",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoxMjQ1LCJUb2tlbl9JZCI6IjI1MDA3NTQzIiwiVXNlcl9OYW1lIjoiTUVFTkFLU0hJIiwiUGFzc3dvcmQiOiJkZGJkNWU5YzFmNjFkM2RjNDU2MjI3YjZjNjE5NTI1OCIsIkRlc2lnbmF0aW9uIjoibWFuYWdlciIsIkNvbnRhY3RfTm8iOjc3Mzg1Mjc5MjksIkVtYWlsX0lEIjoiMjUwMDc1NDNATWFoaW5kcmFMb2dpc3RpY3MuQ09NIiwiU3RhdHVzIjoiMSIsIkNyZWF0ZWRfQnkiOjExMjksIkNyZWF0ZWRfT24iOiIyMDIzLTA1LTE3VDE2OjA5OjIxLjAwMFoiLCJVcGRhdGVkX0J5IjoiMTI0NSIsIlVwZGF0ZWRfT24iOiIyMDIzLTEwLTIzVDE2OjU2OjMwLjAwMFoiLCJMb2dpbkF0dGVtcHQiOjEsImlhdCI6MTcwNzcyODQ4MH0.EGbGe3mRfqHrmoPlAjQ4clD4wcFcboHVXR40ubfTK7QVcEgbTqcxG3Tnt5YLH_N1--_K2ddDMpDaVL-wsLkuXdENIIoHFsgt46Qqd3Md3FFniaIJngg1KuuPLhjjx2mQIKIu170B8Pf7BNaWYPKtZ2AcxDccQZ52D73CDKhBISY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"User_ID\": \"1245\",\r\n    \"Service_Id\":2,\r\n    \"Mode\" :\"INSERTUPDATE\", // GET and INSERTUPDATE\r\n    \"Service_Name\":\"WAREHOUSE\",\r\n    \"Service_Status\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/Masters/GetAddUpdateService",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Masters",
+						"GetAddUpdateService"
+					],
+					"query": [
+						{
+							"key": "Email_ID",
+							"value": "25007543@mahindralogistics.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
