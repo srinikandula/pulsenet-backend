@@ -7,17 +7,20 @@ var jwt = require('jsonwebtoken')
 var fs = require('fs')
 var moment = require('moment');
 var md5 = require('md5');
+const {
+    logger
+} = require('../utils/logger');
 
 class Login {
     generateAccessToken = async (obj) => {
-        var privateKey = fs.readFileSync('./ConfigSettings/keys/private.key')
+        var privateKey = fs.readFileSync('./ConfigSettings/Keys/private.key')
         return jwt.sign(obj, privateKey, {
             algorithm: 'RS256'
         })
     }
     authenticateUsers = async (req, res) => {
         try {
-            var privateKey = fs.readFileSync('./ConfigSettings/keys/private.key');
+            var privateKey = fs.readFileSync('./ConfigSettings/Keys/private.key');
             var userData =
                 await db.sequelize.query(`CALL SP_GETUserdetails(:_Email_ID,:_Password)`, {
                     replacements: {
@@ -72,23 +75,11 @@ class Login {
                 res.status(200).send(apiResponse.errorFormat(`fail`, errorCode.ERR_002, {}, [], 200));
             }
         } catch (error) {
+            logger.error(error.message);
             res.status(401).send(apiResponse.errorFormat(`fail`, errorCode.ERR_001, {}, [], 401))
         }
     }
-
-    createSession(userId, token, status, last_login, last_logout, created_on, updated_on) {
-        return new Promise(async (resolve, reject) => {
-            try {
-                let sessionToken = await db.sequelize.query(`insert into dl_user_mobile_session(USER_ID,TOKEN,STATUS,LAST_LOGIN,CREATED_ON) VALUES ('${userId}','${token}','${status}','${last_login}','${created_on}')`);
-                resolve(sessionToken)
-            } catch (error) {
-                // console.log(error)
-                console.log(`error ${JSON.stringify(error)}`)
-                //let Eresponse = genericErrorRes(error)
-                reject('')
-            }
-        })
-    }
+   
 }
 
 module.exports = new Login();
