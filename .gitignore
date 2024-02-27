@@ -51,3 +51,5 @@ Thumbs.db
 # Env file
 *.env
 
+# Log Files
+logFiles.log
