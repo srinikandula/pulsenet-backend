@@ -137,7 +137,14 @@ export const verifyOTP = async (req, res) => {
         });
 
         if (isValid) {
-            const userObj = await db.sequelize.query(`select * from mst_user where Email_ID = :_Email_ID`);
+            console.log("OTP is correct");
+            const userObj = await db.sequelize.query(`SELECT * FROM mst_user WHERE Email_ID = :Email_ID`, {
+                replacements: {
+                    Email_ID: req.body.Email_ID
+                },
+                type: db.sequelize.QueryTypes.SELECT
+            });
+            console.log(userObj);
             let accessToken = generateAccessToken(userObj);
             const cookieOptions = {
                 maxAge: 3600000 * 24, // Expiration time in milliseconds
@@ -147,7 +154,7 @@ export const verifyOTP = async (req, res) => {
             res.status(200).send(successFormat("PASS", "Cookie sent", accessToken, []));
         }
     } catch (error) {
-        res.status(403).send(errorFormat("Fail", "Wrong OTP", {}, errorCodes.ERR_005, 403));
+        res.status(403).send(errorFormat("Fail", "Wrong OTP", {}, error.message, 403));
     }   
 };
 

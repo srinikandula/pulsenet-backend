@@ -7,20 +7,39 @@ export const getKPIDetails = expressAsyncHandler(async (req, res) => {
     try {
         console.log(req.body);
 
-        const respObject = await db.sequelize.query(`CALL SP_GET_INPUT_PARAMETERS_ENTRY_DATA(:__User_ID, :__Account_ID, :_Frequency)`, {
+        const respObject = await db.sequelize.query(`CALL SP_GET_INPUT_PARAMETERS_ENTRY_DATA(:_User_ID, :_Account_ID, :_Frequency)`, {
             replacements: {
-                _User_ID: req.query.User_ID ? req.query.User_ID : 0,
-                _Account_ID: req.query.Account_ID? req.query.Account_ID : 0,
-                _Frequency: req.query.Frequency? req.query.Frequency : ''
+                _User_ID: req.body.User_ID ? req.body.User_ID : 0,
+                _Account_ID: req.body.Account_ID? req.body.Account_ID : 0,
+                _Frequency: req.body.Frequency? req.body.Frequency : ''
             },
             type: db.sequelize.QueryTypes.SELECT
         });
+        console.log(respObject);
 
         res.status(200).send(successFormat("Data Retrieved", "KPI details input", respObject, []));
     } catch (err) {
-        res.status(501).send(errorFormat("Error", "Wrong Input or invalid input", {}, errorCodes.ERR_004, 501));
+        res.status(501).send(errorFormat("Error", "Wrong Input or invalid input", {}, err.message, 501));
     }
 });
+
+export const GetNPDKPIList = async (req, res) => {
+    try {
+        const dtKpidetails = await db.sequelize.query(`call SP_GET_NA_KPI(:_User_ID,:_Account_ID,:_Frequency,:_Category_ID,:_Service_ID)`, {
+            replacements: {
+                _User_ID: req.body.User_ID ? req.body.User_ID : 0,
+                _Account_ID: req.body.Account_ID ? req.body.Account_ID : 0,
+                _Frequency: req.body.Frequency ? req.body.Frequency : "",
+                _Category_ID:req.body.Category_ID?req.body.Category_ID:0,
+                _Service_ID:req.body.Service_ID?req.body.Service_ID:0
+            }
+        });
+        res.status(200).send(successFormat("Success", "Success", dtKpidetails, []));
+    } catch (error) {
+        res.status(401).send(errorFormat("Fail", error.message, [], error.message, 401));
+        logger.error(error.message);
+    }
+}
 
 export const saveData = expressAsyncHandler(async (req, res) => {
     try {

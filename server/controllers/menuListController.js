@@ -5,11 +5,11 @@ import { errorFormat, successFormat } from '../middleware/formatResponse.js'
 
 export const getMenuList = expressAsyncHandler(async (req, res) => {
     try {
-        console.log(req.query);
+        console.log(req.body);
 
         const menuList = await db.sequelize.query(`CALL SP_GETROLEWISEACCESS(:_ROLE_ID)`, {
             replacements: {
-                _ROLE_ID: req.query.Role_ID? req.query.Role_ID : ''
+                _ROLE_ID: req.body.Role_ID? req.body.Role_ID : ''
             },
             type: db.sequelize.QueryTypes.SELECT
         });

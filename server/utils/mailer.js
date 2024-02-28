@@ -45,7 +45,7 @@ export const sendEmailOTP = (email) => {
 
     var mailOptions = {
         from: `${process.env.EMAIL_ADDRESS}`,
-        to: `avneets2103@gmail.com`,
+        to: `ojas.off2003@gmail.com`,
         subject: "OTP Verification: Mahindra Logistics",
         text: `Dear User,\n`
             + `${otp} is your otp for Login. Please Enter the OTP to proceed.\n`
