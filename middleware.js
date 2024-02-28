@@ -9,7 +9,7 @@ var middleware = async (req, res, next) => {
         next();
     } else
     if (req.headers.accesstoken) {
-        jwt.verify(req.headers.accesstoken, cert, function (err, decoded) {
+        jwt.verify(req.headers.accesstoken, cert, { algorithms: ['RS256'] },function (err, decoded) {
             if (err) {
                 res.status(401).send(apiResponse.errorFormat(`fail`, '005', {}, {
                     err: "No Access"
