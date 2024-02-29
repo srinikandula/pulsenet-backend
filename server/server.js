@@ -14,7 +14,7 @@ const app = express();
 app.use(cookieParser());
 app.use(cors());
 
-const port = process.env.PORT;
+const port = process.env.APP_PORT;
 
 app.listen(port, () => console.log(`app listing on port ${port} !!`));
 app.use(express.json());
