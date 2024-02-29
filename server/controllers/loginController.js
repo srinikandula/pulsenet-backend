@@ -87,7 +87,7 @@ export const checkAuth = expressAsyncHandler(async (req, res) => {
             res.status(200).send(errorFormat(`fail`, errorCodes.ERR_002, {}, [], 200));
         }
     } catch (error) {
-        res.status(401).send(errorFormat('FAIL', errorCodes.ERR_001, {}, [], 401))
+        res.status(401).send(errorFormat('FAIL', error, {}, [], 401))
     }
 })
 
