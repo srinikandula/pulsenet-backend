@@ -4,7 +4,7 @@ app = express();
 var bodyParser = require('body-parser')
 const port=process.env.APP_PORT;
 
-app.listen(port, () => console.log(`app listing on port ${port} !!`));
+app.listen(port, () => console.log(`application listing on port ${port} !!`));
 
 app.use(bodyParser.urlencoded({
     extended: true
