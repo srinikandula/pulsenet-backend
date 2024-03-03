@@ -3,6 +3,6 @@ import { getMenuList } from "../controllers/menuListController.js";
 
 const router = express.Router();
 
-router.get("/", getMenuList)
+router.post("/", getMenuList)
 
 export default router;
