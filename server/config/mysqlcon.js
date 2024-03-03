@@ -1,8 +1,9 @@
 import Sequelize from "sequelize";
 
+console.log(process.env.DB_NAME, process.env.DB_HOST, process.env.DB_PASS)
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.USERNAME, process.env.PASSWORD, {
-    host: process.env.HOST_NAME,
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+    host: process.env.DB_HOST,
     dialect:'mysql'
 });
 
@@ -14,7 +15,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.USERNAME, proce
 
 sequelize
 .authenticate()
-.then(() => {
+.then(async () => {
     console.log("connection established successfully");
 })
 .catch((err) => {

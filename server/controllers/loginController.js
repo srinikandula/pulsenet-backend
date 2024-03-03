@@ -133,7 +133,7 @@ export const verifyOTP = async (req, res) => {
             digits: 4,
             token: enteredOTP,
             step: 60,
-            window: 1 // Change the window to 1 to allow 30 seconds before and after the current time
+            window: 5 // Change the window to 1 to allow 30 seconds before and after the current time
         });
 
         if (isValid) {

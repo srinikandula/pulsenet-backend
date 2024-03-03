@@ -17,7 +17,7 @@ let generateOTP = (secretBase32) => {
 export const sendEmailPassword = (email, password) => {   
     var mailOptions = {
         from: `${process.env.EMAIL_ADDRESS}`,
-        to: `${email}`,
+        to: `hacksmithsmahindra@gmail.com`,
         subject: "Password Reset: Mahindra Logistics",
         text: `Dear Sir/Madam,\n`
             + `Your Password has been reset. \n`
@@ -45,7 +45,7 @@ export const sendEmailOTP = (email) => {
 
     var mailOptions = {
         from: `${process.env.EMAIL_ADDRESS}`,
-        to: `ojas.off2003@gmail.com`,
+        to: `hacksmithsmahindra@gmail.com`,
         subject: "OTP Verification: Mahindra Logistics",
         text: `Dear User,\n`
             + `${otp} is your otp for Login. Please Enter the OTP to proceed.\n`
