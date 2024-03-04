@@ -30,25 +30,6 @@ export const getAccount = expressAsyncHandler(async (req, res) => {
     }
 });
 
-export const getCategory = expressAsyncHandler(async (req, res) => {    
-    try {
-        let resp = await db.sequelize.query(`CALL SP_Category(:_User_ID,:_Is_Admin,:_Mode,:_Category_Id,:_Category_Name,:_Category_Status)`, {
-            replacements: {
-                _User_ID: req.body.User_ID? req.body.User_ID : '',
-                _Is_Admin: req.body.Is_Admin? req.body.Is_Admin : '',
-                _Mode: req.body.Mode? req.body.Mode : '',
-                _Category_Id: req.body.Category_Id? req.body.Category_Id : '',
-                _Category_Name: req.body.Category_Name? req.body.Category_Name : '',
-                _Category_Status: req.body.Category_Status? req.body.Category_Status : '',
-            },
-            type: db.sequelize.QueryTypes.SELECT
-        });
-        res.status(200).send(successFormat("Sucess", "Category send", resp, []));
-    } catch (err) {
-        res.status(502).send(errorFormat("Error", errorCodes.ERR_004, {}, err.message, 502));
-    }
-});
-
 export const getServiceLine = expressAsyncHandler(async (req, res) => {
     try {
         var ServiceData = await db.sequelize.query(`call SP_Account(:_User_ID,:_Is_Admin,:_Mode,:_Account_ID,:_Account_Name,:_Service_ID,:_Location_ID,:_Block_ID,:_Email_ID,:_Contact_Person_Name,:_Address,:_Status)`, {
@@ -68,25 +49,47 @@ export const getServiceLine = expressAsyncHandler(async (req, res) => {
             },
             type: db.sequelize.QueryTypes.SELECT
         });
-        res.status(200).send(apiResponse.successFormat(`success`, `Success`, ServiceData, []));
+        res.status(200).send(successFormat(`success`, `Success`, ServiceData, []));
     } catch (error) {
-        res.status(401).send(apiResponse.errorFormat("Fail", error.message, [], [], 401));
+        res.status(401).send(errorFormat("Fail", error.message, [], [], 401));
     }
 });
 
-
-export const GetAccountByVertical = expressAsyncHandler(async (req, resp) => {
+export const getCategory = expressAsyncHandler(async (req, res) => {    
     try {
-        var AccountData = await db.sequelize.query(`call SP_GET_Account_VerticalWise(:_User_ID,:_Vertical_ID,:_Mode)`, {
+        let resp = await db.sequelize.query(`CALL SP_Category(:_User_ID,:_Is_Admin,:_Mode,:_Category_Id,:_Category_Name,:_Category_Status)`, {
             replacements: {
-                _User_ID: req.body.User_ID ? req.body.User_ID : '',
-                _Vertical_ID: req.body.Vertical_ID ? req.body.Vertical_ID : 0,
-                _Mode: req.body.Mode ? req.body.Mode : '' // GET_BY_USER_ID_VERTICAL
-            }
+                _User_ID: req.body.User_ID? req.body.User_ID : '',
+                _Is_Admin: req.body.Is_Admin? req.body.Is_Admin : '',
+                _Mode: req.body.Mode? req.body.Mode : '',
+                _Category_Id: req.body.Category_Id? req.body.Category_Id : '',
+                _Category_Name: req.body.Category_Name? req.body.Category_Name : '',
+                _Category_Status: req.body.Category_Status? req.body.Category_Status : '',
+            },
+            type: db.sequelize.QueryTypes.SELECT
         });
-        resp.status(200).send(successFormat(`success`, `Success`, AccountData, []));
-    } catch (error) {
-        resp.status(401).send(errorFormat("Fail", error.message, [], [], 401));
-        logger.error(error.message);
+        res.status(200).send(successFormat("Sucess", "Category send", resp, []));
+    } catch (err) {
+        res.status(502).send(errorFormat("Error", errorCodes.ERR_004, {}, err.message, 502));
     }
 });
+
+export const getVertical = expressAsyncHandler(async (req, res) => {
+    try {
+        let resp = await db.sequelize.query(`CALL SP_Vertical(:_User_ID, :_Is_Admin, :_Mode, :_Vertical_Id,:_Vertical_Name,:_Vertical_Status)`, {
+            replacements: {
+                _User_ID: req.body.User_ID? req.body.User_ID : 0,
+                _Is_Admin: req.body.Is_Admin? req.body.Is_Admin : 0,
+                _Mode: req.body.Mode? req.body.Mode : 'GET',
+                _Vertical_Id: req.body.Vertical_Id? req.body.Vertical_Id : 0,
+                _Vertical_Name: req.body.Vertical_Name? req.body.Vertical_Name : '',
+                _Vertical_Status: req.body.Vertical_Status? req.body.Vertical_Status : '',
+            },
+            type: db.sequelize.QueryTypes.SELECT
+        })
+    } catch (error) {
+        res.status(401).send(errorFormat("Error", error.message, {}, [], 401));
+    }
+});
+
+
