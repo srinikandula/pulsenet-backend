@@ -5,7 +5,7 @@ import { getAccount, getServiceLine, getCategory, getVertical } from "../control
 
 const router = express.Router();
 
-router.post('/getVerticals', );
+router.post('/getVerticals', getVertical);
 router.post('/getAccount', getAccount);
 router.post('/getServiceLine', getServiceLine);
 router.post('/getCategory', getCategory);
