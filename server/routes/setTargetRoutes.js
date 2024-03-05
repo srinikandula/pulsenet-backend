@@ -5,12 +5,11 @@ import { getAccount, getServiceLine, getCategory, getVertical } from "../control
 
 const router = express.Router();
 
-router.post('/getVerticals', getVertical);
-router.post('/getAccount', getAccount);
-router.post('/getServiceLine', getServiceLine);
-router.post('/getCategory', getCategory);
-router.post('/getKPIDetails', getKPIDetailsTarget);
-router.post('/updateApproveTarget', saveDataInputDetails);
-router.post('/getVerticals', getVertical);
+router.post('/getaccount', getAccount);
+router.post('/getserviceline', getServiceLine);
+router.post('/getcategory', getCategory);
+router.post('/getkpidetails', getKPIDetailsTarget);
+router.post('/updateapprovetarget', saveDataInputDetails);
+router.post('/getverticals', getVertical);
 
 export default router;

@@ -87,6 +87,7 @@ export const getVertical = expressAsyncHandler(async (req, res) => {
             },
             type: db.sequelize.QueryTypes.SELECT
         })
+        res.status(200).send(successFormat("Success", "Vertical Sent", resp, []));
     } catch (error) {
         res.status(401).send(errorFormat("Error", error.message, {}, [], 401));
     }

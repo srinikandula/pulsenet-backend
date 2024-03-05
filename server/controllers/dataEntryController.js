@@ -58,7 +58,7 @@ export const saveData = expressAsyncHandler(async (req, res) => {
             },
             type: db.Sequelize.QueryTypes.INSERT
         });
-        res.status(200).send(apiResponse.successFormat("Success", "Success", [], []));
+        res.status(200).send(successFormat("Success", "Success", [], []));
     } catch (err) {
         res.status(401).send(errorFormat("Fail", err.message, [], [], 401));
     }
