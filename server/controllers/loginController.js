@@ -144,14 +144,19 @@ export const verifyOTP = async (req, res) => {
                 },
                 type: db.sequelize.QueryTypes.SELECT
             });
-            console.log(userObj);
-            let accessToken = generateAccessToken(userObj);
+            console.log(userObj[0]);
+            let accessToken = await generateAccessToken(userObj[0])
+                // .then((accessToken) => {
+                //     console.log(accessToken);
+                // })
+                // .catch((error) => {console.error(error);})
             const cookieOptions = {
                 maxAge: 3600000 * 24, // Expiration time in milliseconds
                 httpOnly: true
             }
+            console.log("Final baar printin access token: ", accessToken)
             res.cookie("uid", accessToken, cookieOptions);
-            res.status(200).send(successFormat("PASS", "Cookie sent", accessToken, []));
+            res.status(200).send(successFormat("PASS", "Cookie sent", {"accessToken": accessToken}, []));
         }
     } catch (error) {
         res.status(403).send(errorFormat("Fail", "Wrong OTP", {}, error.message, 403));

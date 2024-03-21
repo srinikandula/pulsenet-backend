@@ -8,10 +8,11 @@ import jwt from "jsonwebtoken";
  */
 export const generateAccessToken = async (obj) => {
     let privateKey = fs.readFileSync('../server/config/keys/private.key');
-    // let privateKey = process.env.PRIVATE_KEY
-    return jwt.sign(obj, privateKey, {
+    let accessToken = await jwt.sign(obj, privateKey, {
         algorithm: 'RS256'
     })
+    // console.log(accessToken)
+    return accessToken;
 }
 
 /**
