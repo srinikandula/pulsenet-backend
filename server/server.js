@@ -26,9 +26,9 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use('/login', loginRoutes)
-app.use('/list', rolesRoutes)
-app.use('/data', dataEntryRoutes)
-app.use('/settarget', setTargetRoutes);
+app.use('/list', restrictToLoggedInUser, rolesRoutes)
+app.use('/data', restrictToLoggedInUser, dataEntryRoutes)
+app.use('/settarget', restrictToLoggedInUser, setTargetRoutes);
 
 app.get('/check', (req, res) => {
     res.send("working!")
