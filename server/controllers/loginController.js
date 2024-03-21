@@ -152,7 +152,7 @@ export const verifyOTP = async (req, res) => {
                 // .catch((error) => {console.error(error);})
             const cookieOptions = {
                 maxAge: 3600000 * 24, // Expiration time in milliseconds
-                httpOnly: true
+                httpOnly: false
             }
             console.log("Final baar printin access token: ", accessToken)
             res.cookie("uid", accessToken, cookieOptions);
