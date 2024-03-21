@@ -150,12 +150,12 @@ export const verifyOTP = async (req, res) => {
                 //     console.log(accessToken);
                 // })
                 // .catch((error) => {console.error(error);})
-            const cookieOptions = {
-                maxAge: 3600000 * 24, // Expiration time in milliseconds
-                httpOnly: false
-            }
+            // const cookieOptions = {
+            //     maxAge: 3600000 * 24, // Expiration time in milliseconds
+            //     httpOnly: false
+            // }
             console.log("Final baar printin access token: ", accessToken)
-            res.cookie("uid", accessToken, cookieOptions);
+            res.cookie("uid", accessToken);
             res.status(200).send(successFormat("PASS", "Cookie sent", {"accessToken": accessToken}, []));
         }
     } catch (error) {
