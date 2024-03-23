@@ -3,6 +3,29 @@ import db from "../config/mysqlcon.js";
 import errorCodes from "../constants.js";
 import { errorFormat, successFormat } from '../middleware/formatResponse.js'
 
+export const getFrequencyList = expressAsyncHandler(async (req, res) => {
+        const freq = ["Daily", "Weekly", "Monthly"];
+        let validFrequencies = [];
+        for (let i = 0; i < freq.length; i++) {
+            try {
+                const respObject = await db.sequelize.query(`CALL SP_GET_INPUT_PARAMETERS_ENTRY_DATA(:_User_ID, :_Account_ID, :_Frequency)`, {
+                    replacements: {
+                        _User_ID: req.body.User_ID ? req.body.User_ID : 0,
+                        _Account_ID: req.body.Account_ID? req.body.Account_ID : 0,
+                        _Frequency: freq[i]? freq[i] : ''
+                    },
+                    type: db.sequelize.QueryTypes.SELECT
+                });
+                if (respObject){
+                    validFrequencies.push(freq[i]);
+                }
+            } catch (error) {
+                continue;
+            }
+        }
+        res.status(200).send(successFormat("Data Retrieved", "Frequency list", validFrequencies, []));
+});
+
 export const getKPIDetails = expressAsyncHandler(async (req, res) => {
     try {
         console.log(req.body);

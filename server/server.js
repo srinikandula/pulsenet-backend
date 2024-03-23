@@ -6,6 +6,7 @@ import rolesRoutes from "./routes/rolesRoutes.js"
 import dataEntryRoutes from "./routes/dataEntryRoutes.js"
 import setTargetRoutes from "./routes/setTargetRoutes.js"
 import getKPIDetailsReportRoutes from "./routes/getKPIDetailsReportRoutes.js"
+import masterRoutes from "./routes/masterRoutes.js";
 import { restrictToLoggedInUser } from "./middleware/restrictToLoggedIn.js";
 import cors from "cors";
 import cookieParser from 'cookie-parser';
@@ -38,7 +39,7 @@ app.use('/list', rolesRoutes)
 app.use('/data', dataEntryRoutes)
 app.use('/settarget', setTargetRoutes);
 app.use('/getkpidetailsreports', getKPIDetailsReportRoutes);
-
+app.use('/masters', masterRoutes);
 app.get('/check', (req, res) => {
     res.send("working!")
 })
