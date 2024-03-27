@@ -34,11 +34,11 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use('/login', loginRoutes)
-app.use('/list', rolesRoutes)
+app.use('/list',restrictToLoggedInUser, rolesRoutes)
 app.use('/data',restrictToLoggedInUser, dataEntryRoutes)
-app.use('/settarget', setTargetRoutes);
-app.use('/getkpidetailsreports', getKPIDetailsReportRoutes);
-app.use('/masters', masterRoutes);
+app.use('/settarget',restrictToLoggedInUser, setTargetRoutes);
+app.use('/getkpidetailsreports',restrictToLoggedInUser, getKPIDetailsReportRoutes);
+app.use('/masters',restrictToLoggedInUser, masterRoutes);
 
 app.get('/check', (req, res) => {
     res.send("working!")
