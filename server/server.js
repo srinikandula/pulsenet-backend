@@ -16,7 +16,6 @@ const app = express();
 app.use(cookieParser());
 
 let corsAllow = {
-    origin: "http://localhost:8000",
     credentials: true,
     methods: "PUT, GET, POST, PATCH, DELETE, HEAD"
 }
@@ -40,6 +39,7 @@ app.use('/data', dataEntryRoutes)
 app.use('/settarget', setTargetRoutes);
 app.use('/getkpidetailsreports', getKPIDetailsReportRoutes);
 app.use('/masters', masterRoutes);
+
 app.get('/check', (req, res) => {
     res.send("working!")
 })

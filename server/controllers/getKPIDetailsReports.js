@@ -2,9 +2,18 @@ import expressAsyncHandler from "express-async-handler";
 import db from "../config/mysqlcon.js";
 import errorCodes from "../constants.js";
 import { errorFormat, successFormat } from '../middleware/formatResponse.js'
+// import Redis from "ioredis";
+import { client } from "../redisClient.js"
 
 export const getKPIDetailsUsageReportWithData = expressAsyncHandler(async(req, res) => {
     try {
+        const cacheKey = JSON.stringify(req.body);
+        const cachedValue = await client.get(cacheKey);
+        console.log("Cached Value:", cachedValue); // Log cachedValue
+        console.log("cachedKey",cacheKey);
+        if (cachedValue) {
+            return res.status(200).send(successFormat("Success", "Success", JSON.parse(cachedValue), []));
+        }
         const getKpidetails = await db.sequelize.query(`call  SP_RPT_USAGE_REPORT_RAW_DATA(:_FRM_DT,:_TO_DT,:_VERTICAL_ID,:_SERVICE_ID,:_CLUSTER_ID,:_ACCOUNT_ID,:_LOCATION_ID,:_BLOCK_ID,:_CATEGORY_ID,:_USER_ID,:_DWMS_PARAMETER_ID)`, {
             replacements: {
                 _FRM_DT: req.body.From_Date? req.body.From_Date: '01.01.2023',
@@ -20,9 +29,10 @@ export const getKPIDetailsUsageReportWithData = expressAsyncHandler(async(req, r
                 _DWMS_PARAMETER_ID:req.body.Dwms_Parameter_Id ? req.body.Dwms_Parameter_Id : 0
             }
         });
-        
+        await client.set(cacheKey, JSON.stringify(getKpidetails));
         res.status(200).send(successFormat("Success", "Success", getKpidetails, []));
     } catch (error) {
+        client.quit();
         res.status(401).send(errorFormat("Fail", error.message, [], [], 401));
         console.log(error.message);
     }

@@ -1,0 +1,109 @@
+{
+    "data": {
+        "SCREEN_NAME": {
+            "Analytics": {
+                "MasterURL": "Templates\\Analytics\\AnalyticsDetails.aspx",
+                "SubMenu": [
+                    {
+                        "URL": "",
+                        "SubMenu": ""
+                    }
+                ]
+            },
+            "Data Input": {
+                "MasterURL": "Templates\\DWMSParametersInput\\DwmsparameterInput.aspx",
+                "SubMenu": [
+                    {
+                        "URL": "",
+                        "SubMenu": ""
+                    }
+                ]
+            },
+            "Master Data": {
+                "MasterURL": "Templates\\Masters\\MastersDetail.aspx",
+                "SubMenu": [
+                    {
+                        "URL": "Formula",
+                        "SubMenu": "Templates\\Masters\\Formula.aspx"
+                    },
+                    {
+                        "URL": "Category",
+                        "SubMenu": "Templates\\Masters\\Category.aspx"
+                    },
+                    {
+                        "URL": "DWMS Parameter Mapping",
+                        "SubMenu": "Templates\\Masters\\DwmsparameterMapping.aspx"
+                    },
+                    {
+                        "URL": "DWMSParameter",
+                        "SubMenu": "Templates\\Masters\\Dwmsparameter.aspx"
+                    },
+                    {
+                        "URL": "Account Master",
+                        "SubMenu": "Templates\\Masters\\Account.aspx"
+                    },
+                    {
+                        "URL": "Block Name",
+                        "SubMenu": "Templates\\Masters\\Block.aspx"
+                    },
+                    {
+                        "URL": "Location",
+                        "SubMenu": "Templates\\Masters\\Location.aspx"
+                    },
+                    {
+                        "URL": "Service Line",
+                        "SubMenu": "Templates\\Masters\\Service.aspx"
+                    },
+                    {
+                        "URL": "SubCluster",
+                        "SubMenu": "Templates\\Masters\\SubCluster.aspx"
+                    },
+                    {
+                        "URL": "Cluster",
+                        "SubMenu": "Templates\\Masters\\Cluster.aspx"
+                    },
+                    {
+                        "URL": "Vertical",
+                        "SubMenu": "Templates\\Masters\\Vertical.aspx"
+                    }
+                ]
+            },
+            "New Customer": {
+                "MasterURL": "Templates\\NewCustomerOnBoarding\\NewCustomerDetails.aspx",
+                "SubMenu": [
+                    {
+                        "URL": "",
+                        "SubMenu": ""
+                    }
+                ]
+            },
+            "Reports": {
+                "MasterURL": "Templates\\Reports\\ReportsDetailNew.aspx",
+                "SubMenu": [
+                    {
+                        "URL": "",
+                        "SubMenu": ""
+                    }
+                ]
+            },
+            "Set KPI": {
+                "MasterURL": "Templates\\DWMSParametersInput\\KPITarget.aspx",
+                "SubMenu": [
+                    {
+                        "URL": "",
+                        "SubMenu": ""
+                    }
+                ]
+            },
+            "User Access": {
+                "MasterURL": "Templates\\Users\\UsersDetail.aspx",
+                "SubMenu": [
+                    {
+                        "URL": "",
+                        "SubMenu": ""
+                    }
+                ]
+            }
+        }
+    }
+}
