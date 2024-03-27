@@ -21,11 +21,11 @@ export const generateAccessToken = async (obj) => {
  * @returns {object|string} The decoded payload of the JWT, or an error message if verification fails.
  */
 export const verifyUser = async (obj) => {
-    let privateKey = fs.readFileSync('../server/config/keys/private.key');
+    let publicKey = fs.readFileSync('../server/config/keys/public.key');
 
     if(!obj){ return null; }
     try {
-        return jwt.verify(obj, privateKey);
+        return jwt.verify(obj, publicKey);
     } catch (error) {
         return error.message;
     }

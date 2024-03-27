@@ -2,7 +2,6 @@ import expressAsyncHandler from "express-async-handler";
 import db from "../config/mysqlcon.js";
 import errorCodes from "../constants.js";
 import { errorFormat, successFormat } from '../middleware/formatResponse.js'
-// import Redis from "ioredis";
 import { client } from "../redisClient.js"
 
 export const getKPIDetailsUsageReportWithData = expressAsyncHandler(async(req, res) => {

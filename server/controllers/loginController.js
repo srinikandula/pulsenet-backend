@@ -29,7 +29,7 @@ export const checkAuth = expressAsyncHandler(async (req, res) => {
         if (!_.isEmpty(userObj)){
             //CASE FOR INACTIVE USER
             if (userObj.status === 0){
-                res.status(200).send(errorFormat('FAIL', errorCodes.ERR_009, {}, [], 200))
+                res.status(403).send(errorFormat('FAIL', errorCodes.ERR_009, {}, [], 403))
             }
 
             //CASE FOR MORE THAN 3 LOGIN ATTEMPTS
@@ -59,7 +59,7 @@ export const checkAuth = expressAsyncHandler(async (req, res) => {
                 sendEmailPassword(email, newPassword);
                 console.log("three time failed login attempt")
 
-                res.status(200).send(errorFormat('FAIL', errorCodes.ERR_100, {}, [], 200))
+                res.status(402).send(errorFormat('FAIL', errorCodes.ERR_100, {}, [], 402))
             }
             //CASE FOR SUCCESSFUL LOGIN ATTEMPT
             else{
@@ -84,7 +84,7 @@ export const checkAuth = expressAsyncHandler(async (req, res) => {
                 },
                 type: db.Sequelize.QueryTypes.INSERT
             });
-            res.status(200).send(errorFormat(`fail`, errorCodes.ERR_002, {}, [], 200));
+            res.status(401).send(errorFormat(`fail`, errorCodes.ERR_002, {}, [], 401));
         }
     } catch (error) {
         res.status(401).send(errorFormat('FAIL', error, {}, [], 401))
@@ -155,8 +155,12 @@ export const verifyOTP = async (req, res) => {
                 httpOnly: false
             }
             console.log("Final baar printin access token: ", accessToken)
-            res.cookie("uid", accessToken, cookieOptions);
+            // res.cookie("uid", accessToken, cookieOptions);
             res.status(200).send(successFormat("PASS", "Cookie sent", {"accessToken": accessToken}, []));
+        }
+        else {
+            console.log("OTP is incorrect");
+            res.status(403).send(errorFormat("Fail", "Wrong OTP", {}, "OTP is incorrect", 403));
         }
     } catch (error) {
         res.status(403).send(errorFormat("Fail", "Wrong OTP", {}, error.message, 403));
