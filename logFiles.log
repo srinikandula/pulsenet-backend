@@ -32,3 +32,5 @@
 {"level":"error","message":true,"timestamp":"2024-01-29T06:55:37.821Z"}
 {"level":"error","message":"EBUSY: resource busy or locked, open 'MyCsv.csv'","timestamp":"2024-01-29T06:56:58.445Z"}
 {"level":"error","message":"EBUSY: resource busy or locked, open 'MyCsv.csv'","timestamp":"2024-01-29T06:56:58.450Z"}
+{"level":"error","message":"secretOrPrivateKey has a minimum key size of 2048 bits for RS256","timestamp":"2024-04-03T12:00:47.298Z"}
+{"level":"error","message":"secretOrPrivateKey has a minimum key size of 2048 bits for RS256","timestamp":"2024-04-03T12:00:47.299Z"}

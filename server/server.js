@@ -43,3 +43,7 @@ app.use('/masters',restrictToLoggedInUser, masterRoutes);
 app.get('/check', (req, res) => {
     res.send("working!")
 })
+
+app.get('/', (req, res) => {
+    res.send("logipulse backend!")
+})
