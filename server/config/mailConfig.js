@@ -13,7 +13,7 @@ let transporter = nodemailer.createTransport({
     },
     tls:{
         minVersion: 'TLSv1.2',
-        //ciphers: 'TLS_AES_256_GCM_SHA384'
+        ciphers: 'TLS_AES_256_GCM_SHA384'
     }
 });
 
