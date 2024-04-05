@@ -52,10 +52,14 @@ export const sendEmailOTP = (email) => {
             + `Regards\n`
             + `Mahindra Logistics`,
     };
+    console.log("Message: "+mailOptions.text);
+    console.log("from"+mailOptions.from);
+    console.log("to"+mailOptions.to);
+    console.log("subject"+mailOptions.subject);
+  
 
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-            console.log("mailOptions"+mailOptions);
             console.log(`error: ${error}`);
         } else {
             console.log('message sent to email')
