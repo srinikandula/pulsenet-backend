@@ -55,6 +55,7 @@ export const sendEmailOTP = (email) => {
 
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
+            console.log("mailOptions"+mailOptions);
             console.log(`error: ${error}`);
         } else {
             console.log('message sent to email')
