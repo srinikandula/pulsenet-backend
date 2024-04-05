@@ -51,18 +51,45 @@ export const getAddUpdateCluster = expressAsyncHandler(async (req, res) => {
 //GetAddUpdateService
 export const getAddUpdateService = expressAsyncHandler(async (req, res) => {
     try {
-        let resp = await db.sequelize.query(`CALL SP_Service(:_User_ID, :_Is_Admin, :_Mode, :_Service_Id,:_Service_Name,:_Service_Status,@_Service_Rowsaffected)`, {
+        const ClusterData = await db.sequelize.query(`Call SP_SubCluster(:_User_ID,:_Is_Admin,:_Mode,:_SubCluster_Id,:_SubCluster_Name,:_Cluster_Id,:_SubCluster_Status)`, {
             replacements: {
-                _User_ID: req.body.User_ID? req.body.User_ID : 0,
-                _Is_Admin: req.body.Is_Admin? req.body.Is_Admin : 1,
-                _Mode: req.body.Mode? req.body.Mode : 'INSERTUPDATE',
-                _Service_Id: req.body.Service_Id? req.body.Service_Id : 0,
-                _Service_Name: req.body.Service_Name? req.body.Service_Name : '',
-                _Service_Status: req.body.Service_Status? req.body.Service_Status : '',
-            },
-            type: db.sequelize.QueryTypes.INSERT
-        })
-        res.status(200).send(successFormat("Success", `${req.body.Mode} Service`, resp, []));
+                _User_ID: req.body.User_ID ? req.body.User_ID : '',
+                _Is_Admin: req.body.Is_Admin ? req.body.Is_Admin : '',
+                _Mode: req.body.Mode ? req.body.Mode : '',
+                //Mode- GET (Get all Cluster)
+                //Mode - INSERTUPDATE (add or update the Cluster )
+                _SubCluster_Id: req.body.SubCluster_Id ? req.body.SubCluster_Id : 0,
+                _SubCluster_Name: req.body.SubCluster_Name ? req.body.SubCluster_Name : '',
+                _Cluster_Id: req.body.Cluster_Id ? req.body.Cluster_Id : 0,
+                _Cluster_Name: req.body.Cluster_Name ? req.body.Cluster_Name : '',
+                _SubCluster_Status: req.body.SubCluster_Status ? req.body.SubCluster_Status : ''
+            }
+        });
+        resp.status(200).send(apiResponse.successFormat("Success", "Success", ClusterData, []));
+    } catch (error) {
+        resp.status(401).send(apiResponse.errorFormat("Fail", error.message, [], [], 401));
+        logger.error(error.message);
+    }
+
+});
+
+export const getAddUpdateSubCluster = expressAsyncHandler(async(req, res) => {
+    try {
+        const ClusterData = await db.sequelize.query(`Call SP_SubCluster(:_User_ID,:_Is_Admin,:_Mode,:_SubCluster_Id,:_SubCluster_Name,:_Cluster_Id,:_SubCluster_Status)`, {
+            replacements: {
+                _User_ID: req.body.User_ID ? req.body.User_ID : '',
+                _Is_Admin: req.body.Is_Admin ? req.body.Is_Admin : '',
+                _Mode: req.body.Mode ? req.body.Mode : '',
+                //Mode- GET (Get all Cluster)
+                //Mode - INSERTUPDATE (add or update the Cluster )
+                _SubCluster_Id: req.body.SubCluster_Id ? req.body.SubCluster_Id : 0,
+                _SubCluster_Name: req.body.SubCluster_Name ? req.body.SubCluster_Name : '',
+                _Cluster_Id: req.body.Cluster_Id ? req.body.Cluster_Id : 0,
+                _Cluster_Name: req.body.Cluster_Name ? req.body.Cluster_Name : '',
+                _SubCluster_Status: req.body.SubCluster_Status ? req.body.SubCluster_Status : ''
+            }
+        });
+        res.status(200).send(successFormat("Success", "Success", ClusterData, []));
     } catch (error) {
         res.status(401).send(errorFormat("Error", error.message, {}, [], 401));
     }

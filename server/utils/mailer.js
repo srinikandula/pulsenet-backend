@@ -1,5 +1,6 @@
 import speakeasy from 'speakeasy';
 import transporter from "../config/mailConfig.js"
+import { emailOTP, emailPassword } from '../constants.js';
 
 let otpExpiry = 0;
 
@@ -17,16 +18,9 @@ let generateOTP = (secretBase32) => {
 export const sendEmailPassword = (email, password) => {   
     var mailOptions = {
         from: `${process.env.EMAIL_ADDRESS}`,
-        to: `hacksmithsmahindra@gmail.com`,
+        to: `${email}`,
         subject: "Password Reset: Mahindra Logistics",
-        text: `Dear Sir/Madam,\n`
-            + `Your Password has been reset. \n`
-            + `Kindly log on to the pulsenet Software, with the following password: \n`
-            + `Password : ${password}\n`
-            + `It is recommended to immediately change your password \n`
-            + `\n`
-            + `Best Regards\n`
-            + `Pulsenet TEAM\n`
+        html: emailPassword(password)
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
@@ -45,12 +39,9 @@ export const sendEmailOTP = (email) => {
 
     var mailOptions = {
         from: `${process.env.EMAIL_ADDRESS}`,
-        to: `hacksmithsmahindra@gmail.com`,
+        to: `${email}`,
         subject: "OTP Verification: Mahindra Logistics",
-        text: `Dear User,\n`
-            + `${otp} is your otp for Login. Please Enter the OTP to proceed.\n`
-            + `Regards\n`
-            + `Mahindra Logistics`,
+        html: emailOTP(otp)
     };
 
     transporter.sendMail(mailOptions, function (error, info) {

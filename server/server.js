@@ -33,12 +33,12 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.use('/login', loginRoutes)
-app.use('/list',restrictToLoggedInUser, rolesRoutes)
-app.use('/data',restrictToLoggedInUser, dataEntryRoutes)
-app.use('/settarget',restrictToLoggedInUser, setTargetRoutes);
-app.use('/getkpidetailsreports',restrictToLoggedInUser, getKPIDetailsReportRoutes);
-app.use('/masters',restrictToLoggedInUser, masterRoutes);
+app.use('/api/login', loginRoutes)
+app.use('/api/list',restrictToLoggedInUser, rolesRoutes)
+app.use('/api/data',restrictToLoggedInUser, dataEntryRoutes)
+app.use('/api/settarget',restrictToLoggedInUser, setTargetRoutes);
+app.use('/api/getkpidetailsreports',restrictToLoggedInUser, getKPIDetailsReportRoutes);
+app.use('/api/masters',restrictToLoggedInUser, masterRoutes);
 
 app.get('/check', (req, res) => {
     res.send("working!")
