@@ -12,7 +12,7 @@ let transporter = nodemailer.createTransport({
         pass: `${process.env.EMAIL_PASSWORD}`
     },
     tls:{
-        minVersion: 'TLSv1.2',
+        minVersion: 'TLSv1.3',
         ciphers: 'TLS_AES_256_GCM_SHA384'
     }
 });
