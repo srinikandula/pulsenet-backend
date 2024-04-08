@@ -1,21 +1,24 @@
 import speakeasy from 'speakeasy';
 import transporter from "../config/mailConfig.js"
-import { emailOTP, emailPassword } from '../constants.js';
+import {
+    emailOTP,
+    emailPassword
+} from '../constants.js';
 
 let otpExpiry = 0;
 
 let generateOTP = (secretBase32) => {
     let token = speakeasy.totp({
-        secret: secretBase32, 
+        secret: secretBase32,
         digits: 4,
-        step: 60, 
+        step: 60,
         window: 1
     });
-    
+
     return token;
 }
 
-export const sendEmailPassword = (email, password) => {   
+export const sendEmailPassword = (email, password) => {
     var mailOptions = {
         from: `${process.env.EMAIL_ADDRESS}`,
         to: `${email}`,
@@ -32,10 +35,10 @@ export const sendEmailPassword = (email, password) => {
     });
 };
 
-export const sendEmailOTP = (email) => {     
-    const secretBase32 = process.env.otp_secret_key;  
-    let otp=generateOTP(secretBase32);
-    otpExpiry = Date.now() + (60000*5); // Set OTP expiry to 60 seconds from now
+export const sendEmailOTP = (email) => {
+    const secretBase32 = process.env.otp_secret_key;
+    let otp = generateOTP(secretBase32);
+    otpExpiry = Date.now() + (60000 * 5); // Set OTP expiry to 60 seconds from now
 
     var mailOptions = {
         from: `${process.env.EMAIL_ADDRESS}`,
@@ -53,5 +56,6 @@ export const sendEmailOTP = (email) => {
     });
 };
 
-export { otpExpiry }
-
+export {
+    otpExpiry
+}

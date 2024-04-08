@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 let transporter = nodemailer.createTransport({
     host: `${process.env.SMTP_SERVER}`,
     port: `${process.env.SMTP_PORT}`,
-    secure:true,
+    secure:false,
     logger:true,
     debug:true,
     secureConnection: true,
